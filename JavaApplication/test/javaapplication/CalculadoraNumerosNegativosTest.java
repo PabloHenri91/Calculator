@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Carol
  */
-public class CalculadoraTest {
+public class CalculadoraNumerosNegativosTest {
     
-    public CalculadoraTest() {
+    public CalculadoraNumerosNegativosTest() {
     }
     
     @BeforeClass
@@ -42,11 +42,11 @@ public class CalculadoraTest {
      */
     @Test
     public void testSomar() {
-        System.out.println("somar");
-        int n1 = 15;
+        System.out.println("somar números negativos");
+        int n1 = -15;
         int n2 = 16;
         Calculadora instance = new Calculadora();
-        double expResult = 31.0;
+        double expResult = 1.0;
         double result = instance.somar(n1, n2);
         assertEquals(expResult, result, 0.0);
     }
@@ -56,11 +56,11 @@ public class CalculadoraTest {
      */
     @Test
     public void testSubtrair() {
-        System.out.println("subtrair");
+        System.out.println("subtrair números negativos");
         int n1 = 18;
-        int n2 = 17;
+        int n2 = -17;
         Calculadora instance = new Calculadora();
-        double expResult = 1.0;
+        double expResult = 35.0;
         double result = instance.subtrair(n1, n2);
         assertEquals(expResult, result, 0.0);
     }
@@ -70,11 +70,11 @@ public class CalculadoraTest {
      */
     @Test
     public void testMultiplicar() {
-        System.out.println("multiplicar");
-        int n1 = 19;
+        System.out.println("multiplicar números negativos");
+        int n1 = -19;
         int n2 = 20;
         Calculadora instance = new Calculadora();
-        double expResult = 380.0;
+        double expResult = -380.0;
         double result = instance.multiplicar(n1, n2);
         assertEquals(expResult, result, 0.0);
     }
@@ -84,11 +84,33 @@ public class CalculadoraTest {
      */
     @Test
     public void testDividir() {
-        System.out.println("dividir");
+        System.out.println("dividir números negativos");
         int n1 = 220;
-        int n2 = 10;
+        int n2 = -10;
         Calculadora instance = new Calculadora();
-        double expResult = 22.0;
+        double expResult = -22.0;
+        double result = instance.dividir(n1, n2);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+    @Test
+    public void testDividirUmPorDois() {
+        System.out.println("dividir 1/2");
+        int n1 = 1;
+        int n2 = 2;
+        Calculadora instance = new Calculadora();
+        double expResult = 0.5;
+        double result = instance.dividir(n1, n2);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+    @Test
+    public void testDividirPorZero() {
+        System.out.println("dividir por zero");
+        int n1 = 1;
+        int n2 = 0;
+        Calculadora instance = new Calculadora();
+        double expResult = Double.POSITIVE_INFINITY;
         double result = instance.dividir(n1, n2);
         assertEquals(expResult, result, 0.0);
     }
